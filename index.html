@@ -1,11 +1,451 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CoFlex-VTLA: Compressing Spatiotemporal Tactile History for VLA-Guided Stiffness Adaptation in Contact-Rich Manipulation">
+  <title>CoFlex-VTLA | Contact-Rich Manipulation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    hello world
+
+  <!-- ========== Header ========== -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="#top" class="logo">CoFlex-VTLA</a>
+      <nav class="nav-links" aria-label="Page navigation">
+        <a href="#abstract">Abstract</a>
+        <a href="#method">Method</a>
+        <a href="#tasks">Tasks</a>
+        <a href="#results">Results</a>
+        <a href="#citation">Citation</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ========== Hero ========== -->
+    <section class="hero" aria-label="Project title">
+      <div class="hero-content">
+        <h1 class="hero-title">CoFlex-VTLA</h1>
+        <p class="hero-subtitle">
+          Compressing Spatiotemporal Tactile History for VLA-Guided<br>
+          Stiffness Adaptation in Contact-Rich Manipulation
+        </p>
+        <div class="hero-actions" role="group" aria-label="Paper and resource links">
+          <a class="btn btn--glass" href="#" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 2l5 5h-5V4zM8 12h8v2H8v-2zm0 4h5v2H8v-2z"/></svg>
+            <span>Paper</span>
+          </a>
+          <a class="btn btn--glass" href="#" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            <span>arXiv</span>
+          </a>
+          <a class="btn btn--glass" href="#" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.17 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            <span>GitHub</span>
+          </a>
+          <a class="btn btn--glass" href="#" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            <span>Dataset</span>
+          </a>
+        </div>
+        <div class="hero-logos">
+          <img src="assets/img/同济大学logo.svg" alt="Tongji University" class="hero-logo">
+          <img src="assets/img/科学中心logo.svg" alt="Shanghai Research Institute for Intelligent Autonomous Systems" class="hero-logo hero-logo--sris">
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Paper Info ========== -->
+    <section class="paper-info" id="paper">
+      <div class="container">
+        <h2 class="paper-title">
+          CoFlex-VTLA: Compressing Spatiotemporal Tactile History for
+          VLA-Guided Stiffness Adaptation in Contact-Rich Manipulation
+        </h2>
+        <div class="paper-authors">
+          <span class="author">Yijie Luo<sup>1,2,*</sup>,</span>
+          <span class="author">Guanghui Qin<sup>1,*</sup>,</span>
+          <span class="author">Wei Wang<sup>1,2</sup>,</span>
+          <span class="author">Xingyu Li<sup>1,2</sup>,</span>
+          <span class="author">Zhipeng Wang<sup>1,2</sup>,</span>
+          <span class="author">Yanmin Zhou<sup>1,2,&dagger;</sup>,</span>
+          <span class="author">Bin He<sup>1,2</sup></span>
+        </div>
+        <p class="paper-affiliations">
+          <sup>1</sup>Tongji University &nbsp;&middot;&nbsp;
+          <sup>2</sup>Shanghai Research Institute for Intelligent Autonomous Systems<br>
+          <span class="aff-note">* Equal contribution &nbsp;&middot;&nbsp; &dagger; Corresponding author</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ========== Abstract ========== -->
+    <section class="section" id="abstract">
+      <div class="container container--narrow">
+        <h2 class="section-title center">Abstract</h2>
+        <div class="prose">
+          <p>
+            Vision-Language-Action (VLA) models have shown strong generalization in robotic
+            manipulation, yet their predominantly kinematic action spaces remain insufficient for
+            contact-rich tasks that require continuous adaptation to evolving physical interactions.
+            We present <strong>CoFlex-VTLA</strong>, a tactile-enhanced VLA framework that couples
+            temporal contact grounding with contact-conditioned directional compliance adaptation.
+            CoFlex-VTLA introduces <strong>Hierarchical Spatio-Temporal Tactile Modulation
+            (HiST-TM)</strong> to capture spatial correlations and multi-rate temporal dynamics from
+            distributed fingertip forces, providing temporally grounded physical context for policy
+            reasoning. Conditioned on the resulting multimodal representation, the policy jointly
+            predicts reference action chunks and <strong>Asymmetric Directional Compliance Fields
+            (ADCF)</strong>, enabling distinct mechanical responses across Cartesian directions and
+            their opposite polarities. The predicted motion and compliance are executed through a
+            high-rate tactile-guided variable impedance controller. Experiments on six real-world
+            contact-rich laboratory tasks show that CoFlex-VTLA achieves a
+            <strong>70.0%</strong> overall stage-level success rate, outperforming the strongest
+            baseline by <strong>27.5 percentage points</strong>, while improving physical
+            interaction consistency and generalizing to unseen object geometries and sizes without
+            fine-tuning.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Method ========== -->
+    <section class="section section--alt" id="method">
+      <div class="container container--narrow">
+        <h2 class="section-title center">Method</h2>
+        <p class="section-lead">
+          CoFlex-VTLA couples temporal contact grounding with contact-conditioned directional
+          compliance adaptation. High-frequency tactile history is first encoded by HiST-TM to
+          ground the policy in the evolving contact state. The grounded multimodal context is then
+          used to jointly predict reference actions and asymmetric directional compliance, which are
+          executed through a high-rate tactile-guided variable impedance controller.
+        </p>
+
+        <figure class="figure">
+          <img src="assets/img/Fig_framework.png"
+               alt="Overview of CoFlex-VTLA framework"
+               loading="lazy">
+          <figcaption>
+            <strong>Overview of CoFlex-VTLA.</strong> (a) A VLM backbone encodes the language
+            instruction, visual observation, and robot state, while HiST-TM models spatial
+            correlations and multi-rate tactile histories. The tactile and contextual VLA
+            representations are fused through bidirectional cross-attention, after which the action
+            expert jointly predicts reference action chunks and asymmetric directional compliance
+            fields. (b) HiST-TM captures spatial correlations among distributed tactile measurements
+            and hierarchically aggregates multi-rate contact histories.
+          </figcaption>
+        </figure>
+
+        <div class="method-grid">
+          <div class="method-block">
+            <h3 class="method-block-title">
+              <span class="method-index">01</span>
+              Hierarchical Spatio-Temporal Tactile Modulation
+            </h3>
+            <p>
+              HiST-TM models spatial correlations and multi-rate tactile histories to modulate the
+              current tactile representation. A GATv2 network captures spatial correlations among
+              fingertip sensing points per frame. Multi-rate historical sequences at different
+              temporal sampling intervals are progressively integrated through a two-stage S4D
+              encoder. The resulting history summary modulates the current feature via FiLM-style
+              conditioning, and bidirectional cross-attention fuses it with the VLA representation.
+            </p>
+          </div>
+
+          <div class="method-block">
+            <h3 class="method-block-title">
+              <span class="method-index">02</span>
+              Asymmetric Directional Compliance Fields
+            </h3>
+            <p>
+              Each compliance command parameterizes independent stiffness along the positive and
+              negative directions of the three translational axes, allowing different mechanical
+              responses along opposite directions of the same axis:
+            </p>
+            <div class="equation">
+              <em><strong>c</strong></em> = [k<sub>x</sub><sup>+</sup>, k<sub>x</sub><sup>&minus;</sup>,
+              k<sub>y</sub><sup>+</sup>, k<sub>y</sub><sup>&minus;</sup>,
+              k<sub>z</sub><sup>+</sup>, k<sub>z</sub><sup>&minus;</sup>]
+            </div>
+            <p>
+              The effective stiffness along each axis is selected according to the polarity of the
+              end-effector displacement relative to the nominal reference.
+            </p>
+          </div>
+
+          <div class="method-block">
+            <h3 class="method-block-title">
+              <span class="method-index">03</span>
+              High-Rate Tactile-Guided Compliance Control
+            </h3>
+            <p>
+              Predicted motion&ndash;compliance chunks are executed by a variable impedance
+              controller at 200 Hz. Fingertip tactile measurements are continuously aggregated into
+              a Cartesian contact-force estimate that adjusts the nominal reference:
+            </p>
+            <div class="equation">
+              <strong>x</strong><sub>v</sub> = <strong>x</strong><sub>r</sub> &minus;
+              <strong>G</strong><sub>&tau;</sub> <strong>K</strong><sup>&minus;1</sup>
+              clip(<strong>f</strong><sub>&tau;</sub> &minus; <strong>f</strong><sub>ref</sub>)
+            </div>
+            <p>
+              Identical force deviations produce larger corrections along compliant directions and
+              smaller corrections along stiff directions, closing the high-rate physical
+              interaction loop.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Tasks ========== -->
+    <section class="section" id="tasks">
+      <div class="container container--narrow">
+        <h2 class="section-title center">Tasks</h2>
+        <p class="section-lead">
+          Six chemistry-inspired laboratory tasks covering diverse contact and compliance
+          requirements, grouped into grasp-dominant, wrench-dominant, and twist-dominant
+          categories with 2&ndash;3 interaction stages per task.
+        </p>
+        <figure class="figure">
+          <img src="assets/img/Fig_tasks.png"
+               alt="Task categories, prompts, and action primitives across six tasks"
+               loading="lazy">
+          <figcaption>
+            <strong>Task categories, prompts, and action primitives.</strong> Grasper major
+            (Drip Dropper, Remove Stopper), wrench major (Replace Test Tube, Dilute Solution),
+            and twist major (Clean Watch Glass, Insert Stopper).
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ========== Results ========== -->
+    <section class="section section--alt" id="results">
+      <div class="container container--narrow">
+        <h2 class="section-title center">Experimental Results</h2>
+
+        <!-- Overall -->
+        <div class="result-block">
+          <h3 class="result-block-title">Overall Performance</h3>
+          <p class="result-block-text">
+            CoFlex-VTLA achieves the highest overall stage-level success rate of
+            <strong>70.0%</strong>, outperforming the strongest baseline, RDP (42.5%), by
+            <strong>27.5 percentage points</strong>.
+          </p>
+          <div class="table-wrap">
+            <table class="data-table">
+              <colgroup>
+                <col class="tactile"><col class="policy">
+                <col class="stage"><col class="stage"><col class="stage"><col class="stage"><col class="stage">
+                <col class="stage"><col class="stage"><col class="stage"><col class="stage">
+                <col class="stage"><col class="stage"><col class="stage"><col class="stage">
+                <col class="avg">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th rowspan="2">Tactile</th>
+                  <th rowspan="2">Policy</th>
+                  <th colspan="5" class="group-h">Grasper Dominant</th>
+                  <th colspan="4" class="group-h">Wrench Dominant</th>
+                  <th colspan="4" class="group-h">Twist Dominant</th>
+                  <th rowspan="2">Avg.</th>
+                </tr>
+                <tr>
+                  <th class="sub">grasp</th><th class="sub">suck</th><th class="sub">drip</th>
+                  <th class="sub">remove</th><th class="sub">put</th>
+                  <th class="sub">lift</th><th class="sub">insert</th>
+                  <th class="sub">grasp</th><th class="sub">pull</th>
+                  <th class="sub">take</th><th class="sub">clean</th>
+                  <th class="sub">move</th><th class="sub">insert</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="group-label"><td colspan="15"><em>w/o Tactile</em></td></tr>
+                <tr><td></td><td>DP</td><td>12/20</td><td>5/20</td><td>0/20</td><td>16/20</td><td>16/20</td><td>8/20</td><td>0/20</td><td>9/20</td><td>0/20</td><td>15/20</td><td>5/20</td><td class="best">20/20</td><td>14/20</td><td>29.2</td></tr>
+                <tr><td></td><td>&pi;<sub>0.5</sub></td><td>18/20</td><td>12/20</td><td>2/20</td><td>14/20</td><td>10/20</td><td>11/20</td><td>1/20</td><td>12/20</td><td>0/20</td><td>17/20</td><td>11/20</td><td>18/20</td><td>11/20</td><td>29.2</td></tr>
+                <tr><td></td><td>WALL-X</td><td class="best">20/20</td><td class="best">15/20</td><td>3/20</td><td>16/20</td><td>14/20</td><td>13/20</td><td>1/20</td><td class="best">17/20</td><td>0/20</td><td class="best">19/20</td><td>15/20</td><td>18/20</td><td>12/20</td><td>37.5</td></tr>
+                <tr class="group-label"><td colspan="15"><em>w/ Tactile</em></td></tr>
+                <tr><td></td><td>ACP</td><td>5/20</td><td>2/20</td><td>0/20</td><td>19/20</td><td>19/20</td><td>17/20</td><td class="best">13/20</td><td>12/20</td><td>2/20</td><td>14/20</td><td>5/20</td><td>18/20</td><td>14/20</td><td>44.2</td></tr>
+                <tr><td></td><td>&pi;<sub>0.5</sub>+tac.</td><td>3/20</td><td>0/20</td><td>0/20</td><td>7/20</td><td>5/20</td><td>2/20</td><td>0/20</td><td>11/20</td><td>1/20</td><td>12/20</td><td>0/20</td><td>0/20</td><td>0/20</td><td>5.0</td></tr>
+                <tr><td></td><td>RDP</td><td>17/20</td><td>14/20</td><td>5/20</td><td>13/20</td><td>9/20</td><td>15/20</td><td>5/20</td><td class="best">17/20</td><td>5/20</td><td class="best">19/20</td><td class="best">16/20</td><td>12/20</td><td>11/20</td><td>42.5</td></tr>
+                <tr class="row-ours"><td></td><td><strong>Ours</strong></td><td>19/20</td><td class="best">15/20</td><td class="best">11/20</td><td class="best">20/20</td><td class="best">20/20</td><td class="best">20/20</td><td>9/20</td><td class="best">17/20</td><td class="best">13/20</td><td>18/20</td><td>15/20</td><td>17/20</td><td class="best">16/20</td><td class="best"><strong>70.0</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <figure class="figure">
+            <img src="assets/img/Fig_stiffness.png"
+                 alt="Representative force and stiffness evolution under adaptive directional compliance"
+                 loading="lazy">
+            <figcaption>
+              <strong>Force and stiffness evolution.</strong> (a) Stopper removal. (b) Watch-glass
+              cleaning. Contact force and predicted stiffness along a task-relevant axis across
+              interaction stages.
+            </figcaption>
+          </figure>
+        </div>
+
+        <!-- Generalization -->
+        <div class="result-block">
+          <h3 class="result-block-title">Generalization to Unseen Objects</h3>
+          <p class="result-block-text">
+            CoFlex-VTLA maintains the strongest performance across unseen square and round watch
+            glasses at both medium and large scales, without fine-tuning. It remains effective on
+            the large-round condition where all baselines fail.
+          </p>
+          <div class="table-wrap table-wrap--narrow">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th rowspan="2">Policy</th>
+                  <th colspan="2" class="group-h">Square</th>
+                  <th colspan="2" class="group-h">Round</th>
+                </tr>
+                <tr>
+                  <th class="sub">Medium</th><th class="sub">Large</th>
+                  <th class="sub">Medium</th><th class="sub">Large</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>DP</td><td>2/5</td><td>0/5</td><td>0/5</td><td>0/5</td></tr>
+                <tr><td>&pi;<sub>0.5</sub></td><td>3/5</td><td>0/5</td><td>0/5</td><td>0/5</td></tr>
+                <tr><td>WALL-X</td><td>4/5</td><td>1/5</td><td>1/5</td><td>0/5</td></tr>
+                <tr><td>ACP</td><td>1/5</td><td>0/5</td><td>1/5</td><td>0/5</td></tr>
+                <tr><td>&pi;<sub>0.5</sub>+tac.</td><td>0/5</td><td>0/5</td><td>0/5</td><td>0/5</td></tr>
+                <tr><td>RDP</td><td>4/5</td><td>2/5</td><td>2/5</td><td>0/5</td></tr>
+                <tr class="row-ours"><td><strong>Ours</strong></td><td class="best"><strong>5/5</strong></td><td class="best"><strong>3/5</strong></td><td class="best"><strong>4/5</strong></td><td class="best"><strong>4/5</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Ablations -->
+        <div class="result-block">
+          <h3 class="result-block-title">Ablation Study</h3>
+          <p class="result-block-text">
+            Removing HiST-TM substantially reduces performance, confirming that temporal tactile
+            context is critical for grounding the policy. Asymmetric compliance outperforms
+            symmetric and fixed variants, and the high-rate tactile loop is essential.
+          </p>
+          <div class="table-wrap table-wrap--narrow">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Variant</th>
+                  <th>Test-Tube Insertion</th>
+                  <th>Stopper Removal</th>
+                  <th>Stopper Insertion</th>
+                  <th>Avg.</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="row-ours"><td><strong>CoFlex-VTLA</strong></td><td>9/20</td><td>20/20</td><td>14/20</td><td class="best"><strong>71.7%</strong></td></tr>
+                <tr><td>Sym. Compliance</td><td>6/20</td><td>20/20</td><td>12/20</td><td>63.3%</td></tr>
+                <tr><td>Fixed Compliance</td><td>6/20</td><td>18/20</td><td>12/20</td><td>60.0%</td></tr>
+                <tr><td>w/o HiST-TM</td><td>3/20</td><td>9/20</td><td>9/20</td><td>35.0%</td></tr>
+                <tr><td>w/o Tactile Loop</td><td>1/20</td><td>10/20</td><td>6/20</td><td>28.3%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Failure Cases -->
+        <div class="result-block">
+          <h3 class="result-block-title">Failure Case Analysis</h3>
+          <p class="result-block-text">
+            Baseline failures frequently occur around contact transitions or sustained interaction,
+            including unsuccessful liquid uptake or release, unstable stopper manipulation, and
+            incomplete surface cleaning.
+          </p>
+          <figure class="figure">
+            <img src="assets/img/Fig_cases.png"
+                 alt="Representative failure cases of baseline policies"
+                 loading="lazy">
+            <figcaption>
+              <strong>Representative failure cases.</strong> (a) Dropper return miss. (b) Failure to
+              uptake liquid. (c) Premature liquid release. (d) Insufficient stopper grip.
+              (e) Incomplete surface cleaning.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Demo Videos ========== -->
+    <section class="section" id="demos">
+      <div class="container">
+        <h2 class="section-title center">Demonstrations</h2>
+        <p class="section-lead center">Videos coming soon.</p>
+        <div class="demo-grid">
+          <div class="demo-placeholder"><div class="demo-placeholder-inner">
+            <svg viewBox="0 0 24 24" width="36" height="36" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+            <p>Drip Dropper</p><span>Video coming soon</span>
+          </div></div>
+          <div class="demo-placeholder"><div class="demo-placeholder-inner">
+            <svg viewBox="0 0 24 24" width="36" height="36" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+            <p>Remove Stopper</p><span>Video coming soon</span>
+          </div></div>
+          <div class="demo-placeholder"><div class="demo-placeholder-inner">
+            <svg viewBox="0 0 24 24" width="36" height="36" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+            <p>Replace Test Tube</p><span>Video coming soon</span>
+          </div></div>
+          <div class="demo-placeholder"><div class="demo-placeholder-inner">
+            <svg viewBox="0 0 24 24" width="36" height="36" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+            <p>Dilute Solution</p><span>Video coming soon</span>
+          </div></div>
+          <div class="demo-placeholder"><div class="demo-placeholder-inner">
+            <svg viewBox="0 0 24 24" width="36" height="36" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+            <p>Clean Watch Glass</p><span>Video coming soon</span>
+          </div></div>
+          <div class="demo-placeholder"><div class="demo-placeholder-inner">
+            <svg viewBox="0 0 24 24" width="36" height="36" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+            <p>Insert Stopper</p><span>Video coming soon</span>
+          </div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Citation ========== -->
+    <section class="section section--alt" id="citation">
+      <div class="container container--narrow">
+        <h2 class="section-title center">Citation</h2>
+        <div class="bibtex-box">
+          <pre><code id="bibtex">@article{luo2026coflexvtla,
+  title   = {CoFlex-VTLA: Compressing Spatiotemporal Tactile History for VLA-Guided Stiffness Adaptation in Contact-Rich Manipulation},
+  author  = {Luo, Yijie and Qin, Guanghui and Wang, Wei and Li, Xingyu and Wang, Zhipeng and Zhou, Yanmin and He, Bin},
+  journal = {arXiv preprint},
+  year    = {2026}
+}</code></pre>
+          <button class="btn btn--primary btn--copy" id="copy-bibtex" type="button">
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            <span>Copy BibTeX</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== Footer ========== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-logos">
+        <img src="assets/img/同济大学logo-footer.svg" alt="Tongji University" class="footer-logo">
+        <img src="assets/img/科学中心logo-footer.svg" alt="Shanghai Research Institute for Intelligent Autonomous Systems" class="footer-logo footer-logo--sris">
+      </div>
+      <p class="footer-text">
+        &copy; 2026 Tongji University &amp; Shanghai Research Institute for Intelligent Autonomous Systems.
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
